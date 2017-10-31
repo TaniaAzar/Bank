@@ -43,7 +43,7 @@ public class AppBank {
                     System.out.println("Введите баланс деветового счета");
                     Scanner scanner5 = new Scanner(System.in);
                     double bal = scanner5.nextInt();
-
+                    
                     //System.out.println("Введите валюту");
                     //Scanner scanner6 = new Scanner(System.in);
                     // String anEnum = scanner2.nextLine();
