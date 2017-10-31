@@ -20,7 +20,7 @@ public class AppBank {
             Scanner scanner = new Scanner(System.in);
             choose = scanner.nextInt();
 
-            HashMap<Client,List<Account>> clientListHashMap = new HashMap<>();
+            Map<Client,List<Account>> clientListHashMap = new HashMap<>();
 
             switch (choose){
                 case 1:{
@@ -40,20 +40,16 @@ public class AppBank {
                     Client client1 = new Client(numpas,name,surname);
 
                     clientListHashMap.put(client1, new ArrayList<>());
-                    System.out.println("Введите баланс деветового счета");
+                    System.out.println("Введите баланс дебетового счета");
                     Scanner scanner5 = new Scanner(System.in);
                     double bal = scanner5.nextInt();
 
-                    //System.out.println("Введите валюту");
-                    //Scanner scanner6 = new Scanner(System.in);
-                    // String anEnum = scanner2.nextLine();
-
                     clientListHashMap.get(client1).add(new DebitAccount(bal,BYN));
+
 
                     break;
                 }
                 case 2:{
-                    System.out.println(clientListHashMap.keySet());
 
                     for (Client client :clientListHashMap.keySet()) {
                         System.out.println("Клиент " + client.toString());

@@ -1,7 +1,9 @@
 package Account;
 
+import java.util.Map;
+
 //класс клиент
-public class Client {
+public class Client{
 
     //поля класса-------------------------------------------
     private String name, surname, number_passport;

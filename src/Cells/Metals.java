@@ -27,9 +27,6 @@ public class Metals {
     public Enum getMetal() { return metal; }
     public void setMetal(MetalsEnum metal) { this.metal = metal; }
 
-    public void setChooseMetals(){
-    }
-
     @Override
     public String toString(){
         return String.format(getMetal() + " весом " + getWeight() +" кг" + " на сумму " + cost);
