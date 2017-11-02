@@ -46,6 +46,7 @@ public class AppBank {
 
                     clientListHashMap.get(client1).add(new DebitAccount(bal,BYN));
 
+                    System.out.println(clientListHashMap.keySet());
 
                     break;
                 }
