@@ -14,13 +14,10 @@ public class Client{
     public Client(String number_passport, String name, String surname){
         setName(name);
         setSurname(surname);
-
         if (number_passport == null || number_passport.isEmpty()){
             throw new IllegalArgumentException("Номер паспорта не может быть пустым");
         }
         this.number_passport = number_passport;
-        this.setName(name);
-        this.setSurname(surname);
     }
 
     //-----------get and set---------------------
@@ -56,6 +53,11 @@ public class Client{
 
         Client other = (Client)object;
         return this.number_passport.equals(other.number_passport);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 
     //представление объекта в виде строки------------------

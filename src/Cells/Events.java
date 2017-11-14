@@ -1,38 +1,32 @@
 package Cells;
 
+//класс акции
 public class Events{
 
-    private String company;
-    private int cost;
-    private int count;
+    //какая компания и стоимость акций
+    private final String company;
+    private double cost;
 
-    public Events(String company, int cost, int count) {
-        try {
-            this.setCompany(company);
-        }catch (NumberFormatException e){
-            System.out.println("Неправильный формат ввода");
+
+    public Events(String company, double cost) {
+        if (company == null || company.isEmpty()){
+            throw new IllegalArgumentException("Название компании не должно быть пустым");
         }
+        this.company = company;
         this.setCost(cost);
-        this.setCount(count);
     }
 
     public String getCompany() {
         return company;
     }
-    public void setCompany(String company) {
-        this.company = company;
-    }
-    public int getCost() {
+    public double getCost() {
         return cost;
     }
-    public void setCost(int cost) {
+    public void setCost(double cost) {
+        if (cost <= 0){
+            throw new IllegalArgumentException("Цена должна быт положительной");
+        }
         this.cost = cost;
-    }
-    public int getCount() {
-        return count;
-    }
-    public void setCount(int count) {
-        this.count = count;
     }
 
     @Override
@@ -42,12 +36,11 @@ public class Events{
         if (o.getClass() != this.getClass()){ return false; }
 
         Events other = (Events) o;
-        if (this.company != other.company){ return true; }
-        else { return false; }
+        return this.company.equals(other.company);
     }
 
     @Override
     public String toString(){
-        return String.format("У компании: " + getCompany() + ", акций " + count + " на сумму " + cost);
+        return String.format("У компании: " + getCompany() + " акций стоимостью " + cost);
     }
 }

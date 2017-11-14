@@ -1,14 +1,8 @@
 import Account.*;
-import Cells.Events;
-import Cells.Metals;
-import Cells.Metals;
-import Commision.Currency;
-import com.sun.java.swing.plaf.windows.WindowsInternalFrameTitlePane;
 
 import java.util.*;
 
-import static Commision.Currency.BYN;
-import static java.lang.Enum.valueOf;
+import static Cells.Currency.BYN;
 
 public class AppBank {
     public static void main(String[] args) {
@@ -44,7 +38,7 @@ public class AppBank {
                     Scanner scanner5 = new Scanner(System.in);
                     double bal = scanner5.nextInt();
 
-                    clientListHashMap.get(client1).add(new DebitAccount(bal,BYN));
+                    clientListHashMap.get(client1).add(new DebitAccount(BYN));
 
                     System.out.println(clientListHashMap.keySet());
 

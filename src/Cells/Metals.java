@@ -1,40 +1,39 @@
 package Cells;
 
-public class Metals {
+public enum Metals implements Cell{
 
-    private float weight;
-    private float cost;
-    private MetalsEnum metal;
+    SEREBRO(1.01),
+    ZOLOTO(77.30),
+    PLATINA(55.47),
+    PALLADI(56.18);
+
+    private double price;
 
     //конструктор с параметрами
-    public Metals(float weight, float cost, MetalsEnum metal) {
-        this.setWeight(weight);
-        if (weight > 3.0){
-            System.out.println("Ячейка должна хранить не больше 3 кг металла");
-        }
-        this.cost = cost;
-        this.metal = metal;
+    Metals(double price) {
+        this.price = price;
     }
     //getter and setter
-    public float getWeight() { return weight; }
-    public void setWeight(float weight) { this.weight = weight; }
-    public float getCost() {
-        return cost;
+    public double getPrice(){
+        return price;
     }
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
-    public Enum getMetal() { return metal; }
-    public void setMetal(MetalsEnum metal) { this.metal = metal; }
 
+    public void setPrice(double price){
+        if (price <= 0){
+            throw new IllegalArgumentException("Неверное значение стоимости металла");
+        }
+        this.price = price;
+    }
     @Override
     public String toString(){
-        return String.format(getMetal() + " весом " + getWeight() +" кг" + " на сумму " + cost);
+        return String.format(this.name() + " цена = " + price);
     }
-}
-enum MetalsEnum{
-    SEREBRO,
-    ZOLOTO,
-    PLATINA,
-    PALLADI;
+
+    private final static int MAX_GRAMS_IN_STORAGE = 3000;
+
+    @Override
+    public int getMaxSum(){
+        return MAX_GRAMS_IN_STORAGE;
+    }
+
 }
